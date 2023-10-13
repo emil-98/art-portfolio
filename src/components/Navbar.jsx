@@ -28,7 +28,7 @@ const Navbar = () => {
 
       {/* Desktop menu */}
 
-      <ul className='text-gray-700 hidden sm:flex px-8 w-3/12 justify-between font-sans-text'>
+      <ul className='text-gray-700 hidden sm:flex px-8 w-3/12 justify-between font-sans-text' >
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -44,13 +44,13 @@ const Navbar = () => {
 
       <ul className={`${!nav ? 'w-0 p-0 text-transparent' : 'w-5/6 p-6 shadow-[0_0_5000px_rgba(0,0,0,0.9)]'} space-y-16 z-20 overflow-hidden transition-all text-2xl items-center justify-center text-gray-700 flex flex-col absolute top-0 end-0 h-screen sm:hidden font-sans-text bg-white`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={handleMenuClick}>Home</Link>
         </li>
         <li>
-          <Link to="/gallery">Gallery</Link>
+          <Link to="/gallery" onClick={handleMenuClick}>Gallery</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" onClick={handleMenuClick}>Contact</Link>
         </li>
       </ul>
     </div>

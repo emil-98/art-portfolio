@@ -1,10 +1,22 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 const Home = () => {
+
+  const [profileImg, setProfileImg] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/selfpics")
+      .then((res) => res.json())
+      .then((data) => {
+        setProfileImg(data.url)
+        console.log("message is " + data.url)
+      })
+  }, [])
+
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 h-fit w-fit justify-items-center items-center gap-[25px]'>
       <img 
-        src='https://zenstudiosla.com/wp-content/uploads/2020/02/87044446_1055305214838625_4386451117312049152_n.jpg' 
+        src={!profileImg ? "../src/assets/img_icon.svg" : profileImg} 
         className='object-cover object-top rounded-2xl w-[400px] h-[400px] shadow-[0_0_15px_rgba(0,0,0,0.5)] ' 
       />
       <p className='max-w-[400px] h-fit text-justify'>
